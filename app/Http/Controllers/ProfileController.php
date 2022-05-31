@@ -42,6 +42,7 @@ class ProfileController extends Controller
                 $oldImagePath = public_path("/uploads/users/$user->image");
                 if (File::exists($oldImagePath)) {
                     unlink($oldImagePath);
+                    
                 }
             }
             $image =  $request->file('image');
