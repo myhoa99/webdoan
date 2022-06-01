@@ -68,7 +68,7 @@
                                         <td style="text-align: center;">{{ $recipe->cuisine != null ? $recipe->cuisine->name : '-'}}</td>
                                         <td>{{ $recipe->noOfViews }}</td>
                                         <td>{{ $recipe->noOfLikes }}</td>
-                                        <td>{{ $recipe->user->name }}</td>
+                                        <td>{{ !empty($recipe->user->name) ? $recipe->user->name : '' }}</td>
                                         <td style="font-size: 18px;"><span class="badge" style="color:white;background-color:{{ $recipe->recipeStatus->color }};">{{ $recipe->recipeStatus->name }}</span></td>
                                         <td class="td-actions text-center">
                                             <a href="/recipe-edit/{{ $recipe->id }}"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">

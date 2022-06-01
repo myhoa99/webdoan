@@ -75,7 +75,7 @@
 <footer class="footer">
     <div class="container-fluid">
         <div class="copyright float-right">
-            © Copyright 2020 by <a href="https://tac-techs.com">Tac-Techs</a>. All Rights Reserved
+            © Copyright 2022 by Mỹ Hoa</a>. All Rights Reserved
         </div>
     </div>
 </footer>

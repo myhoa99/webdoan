@@ -88,7 +88,9 @@ class RecipeController extends Controller
         if ($request->hasFile('image')) {
             if ($recipe->image != null) {
                 $oldImagePath = public_path("/uploads/recipes/$recipe->image");
-                unlink($oldImagePath);
+                if(file_exists($oldImagePath)){
+                    unlink($oldImagePath);
+                }
             }
             $image =  $request->file('image');
             $extension = $image->getClientOriginalExtension();
