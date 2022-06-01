@@ -132,7 +132,7 @@
                                 <label class="col-sm-2 col-form-label">{{ __('Category') }}</label>
                                 <div class="col-sm-7">
                                     <div class="form-group{{ $errors->has('categories') ? ' has-danger' : '' }}">
-                                        <select multiple style="height: 100px;" class="form-control" data-style="btn btn-link" id="input-category" name="category[]">
+                                        <select multiple style="height: 100px;" class="form-control" data-style="btn btn-link" id="input-category" name="category[]" required>
                                             @foreach($categories as $category )
                                             <option value="{{ $category->id }}" {{ ($selectedCategories->contains('categoryId', $category->id)) ? 'selected' : ''}}>{{ $category->name }}</option>
                                             @endforeach
