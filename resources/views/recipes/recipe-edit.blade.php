@@ -32,7 +32,7 @@
                                 <label class="col-sm-2 col-form-label">{{ __('Language') }}</label>
                                 <div class="col-sm-7">
                                     <div class="form-group{{ $errors->has('language_code') ? ' has-danger' : '' }}">
-                                        <select name="language_code" id="language_code" class="form-control">
+                                        <select name="language_code" id="language_code" class="form-control" required>
                                             @foreach($available_locales as $i => $locale )
                                             <option value="{{ $i }}" {{ $i == $recipes->language_code ? 'selected': '' }} >{{ $locale }}</option>
                                             @endforeach
@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="fileinput-preview fileinput-exists img-thumbnail" style="max-width: 200px; max-height: 125px;"></div>
                                         <div>
-                                            <span class="btn btn-outline-secondary btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input id="image" type="file" name="image" value="{{ $recipes->image }}"></span>
+                                            <span class="btn btn-outline-secondary btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input id="image" type="file" name="image" required value="{{ $recipes->image }}"></span>
                                             <a href="#" class="btn btn-outline-secondary fileinput-exists" data-dismiss="fileinput">Remove</a>
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@
                                 <label class="col-sm-2 col-form-label">{{ __('Difficulty') }}</label>
                                 <div class="col-sm-7">
                                     <div class="form-group{{ $errors->has('difficulty_id') ? ' has-danger' : '' }}">
-                                        <select name="difficulty_id" id="difficulty_id" class="form-control">
+                                        <select name="difficulty_id" id="difficulty_id" class="form-control" required>
                                             @foreach($difficulties as $difficulty )
                                             <option value="{{ $difficulty->id }}" {{ ( $difficulty->id  == $recipes->difficulty_id) ? 'selected' : '' }}>{{ $difficulty->difficulty }}</option>
                                             @endforeach
@@ -149,7 +149,7 @@
                                 <label class="col-sm-2 col-form-label">{{ __('Cuisine (optional)') }}</label>
                                 <div class="col-sm-7">
                                     <div class="form-group{{ $errors->has('cuisine_id') ? ' has-danger' : '' }}">
-                                        <select name="cuisine_id" id="cuisine_id" class="form-control">
+                                        <select name="cuisine_id" id="cuisine_id" class="form-control" required>
                                             <option value="">Select Cuisine</option>
                                             @foreach($cuisines as $cuisine )
                                             <option value="{{ $cuisine->id }}" {{ ( $cuisine->id  == $recipes->cuisine_id) ? 'selected' : '' }}>{{ $cuisine->name }}</option>
@@ -190,7 +190,7 @@
                                 <label class="col-sm-2 col-form-label">{{ __('Website URL (optional)') }}</label>
                                 <div class="col-sm-7">
                                     <div class="form-group{{ $errors->has('websiteUrl') ? ' has-danger' : '' }}">
-                                        <input class="form-control{{ $errors->has('websiteUrl') ? ' is-invalid' : '' }}" name="websiteUrl" id="input-websiteUrl" type="text" value="{{ $recipes->websiteUrl }}" placeholder="{{ __('Website URL') }}" />
+                                        <input required class="form-control{{ $errors->has('websiteUrl') ? ' is-invalid' : '' }}" name="websiteUrl" id="input-websiteUrl" type="text" value="{{ $recipes->websiteUrl }}" placeholder="{{ __('Website URL') }}" />
                                         @if ($errors->has('websiteUrl'))
                                         <span id="websiteUrl-error" class="error text-danger" for="input-websiteUrl">{{ $errors->first('websiteUrl') }}</span>
                                         @endif
@@ -202,7 +202,7 @@
                                 <label class="col-sm-2 col-form-label">{{ __('Youtube URL (optional)') }}</label>
                                 <div class="col-sm-7">
                                     <div class="form-group{{ $errors->has('youtubeUrl') ? ' has-danger' : '' }}">
-                                        <input class="form-control{{ $errors->has('youtubeUrl') ? ' is-invalid' : '' }}" name="youtubeUrl" id="input-youtubeUrl" type="text" value="{{ $recipes->youtubeUrl }}" placeholder="{{ __('Youtube URL') }}" />
+                                        <input required class="form-control{{ $errors->has('youtubeUrl') ? ' is-invalid' : '' }}" name="youtubeUrl" id="input-youtubeUrl" type="text" value="{{ $recipes->youtubeUrl }}" placeholder="{{ __('Youtube URL') }}" />
                                         @if ($errors->has('youtubeUrl'))
                                         <span id="youtubeUrl-error" class="error text-danger" for="input-youtubeUrl">{{ $errors->first('youtubeUrl') }}</span>
                                         @endif
@@ -214,7 +214,7 @@
                                 <label class="col-sm-2 col-form-label">{{ __('Status') }}</label>
                                 <div class="col-sm-7">
                                     <div class="form-group{{ $errors->has('status') ? ' has-danger' : '' }}">
-                                        <select name="status" id="status" class="form-control">
+                                        <select required name="status" id="status" class="form-control">
                                             @foreach($statuses as $status )
                                             <option value="{{ $status->id }}" {{ ( $status->id  == $recipes->status) ? 'selected' : '' }}>{{ $status->name }}</option>
                                             @endforeach
