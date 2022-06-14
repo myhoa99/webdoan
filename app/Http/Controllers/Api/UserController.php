@@ -270,11 +270,15 @@ class UserController extends Controller
 
         $followerUsers = collect($followerUsers)->map(function($item){
             $item->id = (int) $item->id;
+            $item->usertype = (int) $item->usertype;
+            $item->status = (int) $item->status;
             return $item;
         });
 
         $followingUsers = collect($followingUsers)->map(function($item){
             $item->id = (int) $item->id;
+            $item->usertype = (int) $item->usertype;
+            $item->status = (int) $item->status;    
             return $item;
         });
         return response()->json(['following' => $followingUsers, 'followers' => $followerUsers], 200);
