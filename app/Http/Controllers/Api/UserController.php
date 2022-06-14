@@ -268,6 +268,15 @@ class UserController extends Controller
         $followingUsers = DB::table('user_followers')->join('users', 'users.id', '=', 'user_followers.followerId')->where('user_followers.userId', '=', $id)->select('users.*')->get();
         $followerUsers = DB::table('user_followers')->join('users', 'users.id', '=', 'user_followers.userId')->where('followerId', '=', $id)->select('users.*')->get();
 
+        $followerUsers = collect($followerUsers)->map(function($item){
+            $item->id = (int) $item->id;
+            return $item;
+        });
+
+        $followingUsers = collect($followingUsers)->map(function($item){
+            $item->id = (int) $item->id;
+            return $item;
+        });
         return response()->json(['following' => $followingUsers, 'followers' => $followerUsers], 200);
     }
 

@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Validator;
 
 class CuisineController extends Controller
 {
-      /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index($lang)
     {
         $cuisines = Cuisine::where([['status', '=', '1'], ['language_code', '=', $lang]])->get();

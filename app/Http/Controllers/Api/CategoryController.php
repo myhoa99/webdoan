@@ -10,11 +10,7 @@ use Illuminate\Support\Facades\Validator as Validator;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function index($lang)
     {
         $categories = Category::where([['status', '=', '1'], ['language_code', '=', $lang]])->get();

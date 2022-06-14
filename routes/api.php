@@ -67,10 +67,8 @@ Route::post('addRecipeComment/{id}/{userId}/{comment}', 'App\Http\Controllers\Ap
 Route::get('getRecipeComments/{id}', 'App\Http\Controllers\Api\RecipeController@getRecipeComments');
 Route::delete('deleteUserComment/{id}', 'App\Http\Controllers\Api\RecipeController@deleteUserComment');
 Route::put('updateRecipeView/{id}', 'App\Http\Controllers\Api\RecipeController@updateRecipeView');
-
 Route::apiResource('settings', 'App\Http\Controllers\Api\SettingsController');
 Route::get('fetchLanguages', 'App\Http\Controllers\Api\SettingsController@fetchLanguages');
-
 Route::apiResource('users', 'App\Http\Controllers\Api\UserController');
 Route::post('loginUsingSocial', 'App\Http\Controllers\Api\UserController@loginUsingSocial');
 Route::post('updateEmail', 'App\Http\Controllers\Api\UserController@updateEmail');
