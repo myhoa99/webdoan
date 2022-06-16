@@ -80,7 +80,9 @@ class CuisineController extends Controller
         $cuisines = Cuisine::findOrFail($id);
         if ($cuisines->image != null) {
             $oldImagePath = public_path("/uploads/cuisines/$cuisines->image");
-            unlink($oldImagePath);
+            if(file_exists($oldImagePath)){
+                unlink($oldImagePath);
+            }
         }
         $cuisines->delete();
 
